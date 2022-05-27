@@ -1,0 +1,148 @@
+/* responsive PC */
+@media only screen and (min-width:64em) {
+   
+}
+/* responsive table */
+@media only screen and (min-width:46.25em) and (max-width:63.9375em) {
+    /* CSS ảnh và chữ phần content cho lề không dính vào 2 bên */
+    #content .content-section{
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    #content .member-img {
+        width: 234px;
+        height: 206px;
+    }
+
+
+    .map-section img {
+        width: 100%;
+        height: auto;
+    }
+
+ 
+
+
+}
+
+/* table and moblie */
+@media only screen and (max-width:63.9375em){
+    .btn{
+        padding: 16px 28px ;
+    }
+
+    #nav .subnav a{
+        padding: 5px 12px;
+    }
+
+    .contact-right .form-control{
+        padding: 15px;
+    }
+
+    .contact-left{
+        line-height: 2;
+    }
+
+    #footer .social-list{
+        font-size: 36px;
+    }
+
+    #footer .social-list a{
+        padding: 0 5px;
+    }
+
+    #footer .copy-right a{
+        padding: 8px 0;
+        display: inline-block;
+    }
+}
+/* responsive moblie */
+@media only screen and (max-width:46.1875em){
+    #header{
+        overflow: hidden;
+    }
+
+    /* Ẩn nút tìm kiếm */
+    #header .search-btn{
+        display: none;
+    }
+    /* Cho menu lên vì sửa ấn chức năng menu */
+    #header .moblie-menu-btn
+    {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .mb-full-width,
+    .mb-col-full{
+        width: 100%;
+    }
+
+    .mb-mt-8{
+        margin-top: 8px !important;
+    }
+
+    #nav{
+        display: block;
+        
+    }
+    #nav > li {
+        display:block; 
+    }
+
+    #nav > li:first-child {
+        display:inline-block; 
+    }
+    /* đẩy menu other về nguôn gốc vì position trước là absolute */
+    #nav .subnav {
+        position: initial;
+        background-color: rgb(126, 126, 126);
+    }
+    #nav .subnav a{
+        color: #fff;
+        font-weight: 500;
+        padding: 5px 41px;
+    }
+
+    #nav li a {
+        padding: 2px 24px;
+    }
+
+    #content .member-img{
+        width: 60%;
+        height: 60%;
+    }
+    /* CSS cho lề đc cách 2 bên */
+    #content .content-section{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+
+    .contact-right{
+        margin-top: 32px !important;
+    }
+
+    .contact-right .form-control{
+        font-size: 16px;
+    }
+
+    .contact-left{
+        font-size: 17px;
+    }
+
+    .contact-submit-btn{
+        font-size: 16px;
+    }
+    
+    .map-section img{
+        width: 100%;
+        height: auto;
+    }
+
+    
+    
+    
+}

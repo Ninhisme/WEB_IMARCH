@@ -1,0 +1,577 @@
+/* Reset CSS */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* Common */
+
+.clear{
+  clear: both;
+}
+/* Tạo 1 lớp giả clear cho các class row để row ôm hết được con nó trong class */
+.row::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* DÙng Trường hợp đổi các chữ đen thành trắng nếu mún */
+.text-white{
+  color: #fff !important;
+}
+
+/* taọ các hàng của mỗi thành phần trong nội dung được CSS giống nhau */
+.row{
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+/* taọ các hàng của mỗi thành phần trong nội dung được CSS giống nhau */
+.column{
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Chia cho thành 3 cột cho nội dung có 3 cái có chiều ngang cách đều nhau */
+.column-third{
+  width: 33.33333%;
+}
+
+/* Chia cho thành 2 cột cho nội dung có 2 cái có chiều ngang cách đều nhau */
+.column-two{
+  width: 50%;
+}
+
+.column-full{
+  width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.mt-8{
+    margin-top: 8px !important; 
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+.btn{
+  color: #fff;
+  background-color: #f44336;
+  text-decoration: none;
+  padding: 9px 25px;
+  /* Chuyển khối đó về 1 dòng k bị vướng cái chữ trên */
+  display: inline-block;
+  margin: 15px 0;
+  border: none;
+  appearance: none;
+  -webkit-appearance:none;
+}
+
+.btn:hover{
+  cursor: pointer;
+  color: #000;
+  background-color: #ccc;
+
+}
+
+.floatright{
+  float:right !important;
+  
+}
+
+/* phan main */
+#main {
+  font-family:'Open Sans', sans-serif;
+  /* Cái nào khi CSS ở responsive chọc thừa ra ngoài thì dùng cái này ẩn thừa */
+  overflow: hidden;
+  
+}
+#html {
+    scroll-behavior: smooth !important; 
+}
+
+#header {
+  height: 46px;
+  background-color: #ff5024;
+  /* Cho thuộc tính khi khéo xuống header đi theo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  
+}
+
+/* CSS cho nav và giới hạn khối trong 1 dòng có khoảng cach den chữ cuối */
+#nav {
+  display: inline-block;
+}
+
+/* xử lý nav và class subnav */
+#nav,
+.subnav {
+  list-style-type: none;
+}
+
+/* li là con trực tiếp nav */
+#nav > li {
+  display: inline-block;
+}
+
+#nav li {
+  /* Lấy vị tri các thẻ nav làm gốc */
+  position: relative;
+}
+
+/* Những đứa a là con của li và li con nav */
+#nav > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+#nav li a {
+  text-decoration: none;
+  line-height: 46px;
+  padding: 0 24px;
+  display: block;
+  font-weight: 500;
+  
+}
+
+/* CSS vao the subnav khi hover vao li la con nav*/
+#nav li:hover .subnav {
+  /* Để hiện khối trong other */
+  display: block;
+}
+
+/* Hover vào thẻ a có li là cha (li nam trng Sub) */
+#nav .subnav li a:hover,
+/* Hover vào thẻ li có a là con */
+#nav > li:hover > a {
+  /* Chữ lúc chỉ vào sẽ thay đổi và cả ô */
+  color: #000;
+  background-color: #ccc;
+}
+
+#nav .subnav {
+  display: none;
+  /* Lấy thẻ cha có posittion gần nhất làm gốc  */
+  position: absolute;
+  /* top đẩy tab trắng cách top 46px-bằng chiều cao cha */
+  top: 100%;
+  left: 0;
+  /* Backgroud cua mục dưới other */
+  background-color: #fff;
+  /* Bong do */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  min-width: 160px;
+}
+
+#nav .subnav a {
+  /* màu phải trùng với other khi lướt chuột zô */
+  color: black;
+  padding: 0 16px;
+  line-height: 38px;
+  font-weight: 600;
+}
+
+/* Css cho icon down */
+#nav .nav-arrow-down {
+  font-size: 14px;
+}
+
+#header .moblie-menu-btn{
+  display: none;
+}
+/* CSS khoi chua icon */
+#header .moblie-menu-btn,
+#header .search-btn {
+  float: right;
+  padding: 0 24px;
+  
+}
+/* CSS icon */
+#header .menu-icon,
+#header .search-icon {
+  color: #fff;
+  font-size: 15px;
+  line-height: 46px;
+}
+
+#header .moblie-menu-btn:hover,
+#header .search-btn:hover {
+  background-color: rgb(184, 25, 25);
+  cursor: pointer;
+}
+#slider {
+  /* Phần slider cách top 46px vì phần header đã nổi lên xuyên qua slider,đẩy slider xuống dưới header  */
+  margin-top: 46px;
+  padding-top: 50%;
+  background: url(../img/slider.jpg) top center / cover no-repeat;
+  /* để cho chữ sẽ nằm trong là con của ảnh và k bị thừa ra thêm */
+  position: relative;
+  opacity: 0.9;
+}
+
+#slider .text-content{
+  position: absolute;
+  bottom: 44px;
+  color: #ff5024;
+  /* Do left sẽ ra giữa do ảnh hưởng position */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+#slider .text-header{
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 33px;
+  text-shadow: 0 0 1px rgb(224, 224, 224)
+}
+
+#slider .text-decription{
+  /* lam 2 chu cach nhau */
+  margin-top: 10px;
+  color:rgb(255, 255, 255);
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 11px 11px 30px #000;
+}
+
+#content {
+  
+}
+/* content-section (RECOMMEND) */
+#content .content-section{
+  width: 800px;  
+  /* width phai thoan man 100% max width-chieu rong toi thieu man hinh */
+  max-width: 100%;
+  padding: 64px 0 112px ;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#content .section-heading{
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 400px;
+  text-align: center;
+  letter-spacing: 4px;
+  
+}
+
+#content .section-sub-heading{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 25px; 
+  font-style: italic; 
+  opacity: 0.8;
+}
+
+#content .about-text{
+  font-size: 15px;
+  margin: 15px 0;   
+  text-align: justify;
+  line-height: 1.6;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+#content .member-img{
+  width: 260px;
+  height: 210px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+
+#content .member{
+  font-size: 15px;
+  font-weight: 600;
+  padding-bottom: 16px;
+}
+
+#content .member-name{
+  font-size: 15px;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+#content .list-member{
+  padding: 16px 0; 
+}
+/* CLass_section(CLASS) */
+#content .class-section{
+  background-color: #ff5024;
+}
+
+#content .class-student{
+  background-color: #fff;
+  margin-top: 40px;
+}
+/* CSS cho khoi li */
+.class-student li{
+  color:#ff5024;
+  font-weight: 600;
+  list-style-type: none;
+  font-size: 15px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #d63912;
+}
+
+.class-student .full{
+  background-color: #f44336;
+  color :#fff;
+  padding: 2px 8px;
+  margin-left: 16px;
+}
+
+.class-student .empty{
+  float:right;
+  background-color: #f44336;
+  color :#fff;
+  padding: 2px 8px;
+  margin-left: 16px;
+  /* Căn chỉnh chữ vào giữa và khoảng cách chữ trên dưới */
+  text-align: center;
+  line-height: 20px;
+  /* chinh cho block cam co so vao giua (khi co float dung margin-top am */
+  margin-top: -2px;
+
+}
+
+.lop-list{
+  display: block;
+  padding-top: 16px;
+  
+}
+
+
+.lop-img{
+  /* Lam anh se to deu hon */
+  width: 100%;
+  /* tạo ảnh và chữ dưới liền nhau 1 khối */
+  display: block;
+}
+
+.lop-img:hover{
+  opacity: 0.8;
+  
+}
+
+.lop-content{
+  background-color: #fff;
+  padding: 16px;
+  font-size: 12px;
+}
+
+.lopname-heading{
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.lop-time{
+  margin-top: 15px;
+  color: #757575;
+  font-weight: 600;
+}
+
+.lop-desc{
+  margin-top: 15px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+
+
+/* contact */
+.contact-content{
+  margin-top: 48px;
+}
+
+.contact-left{
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.contact-left i[class*="ti-"]{
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-right{
+  font-size: 15px;
+
+}
+
+.contact-right .form-control{
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+
+
+/* CSS MAp */
+
+.map-section img{
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(50%); 
+}
+
+#footer {
+    background-color: #ff5024;
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .social-list{
+    font-size: 24px;
+}
+
+#footer .social-list a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    
+}
+#footer .copy-right a:hover,
+#footer .social-list a:hover{
+    color: rgb(171 170 170 / 60%);;
+}
+
+#footer .copy-right{
+    margin: 15px 0;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+#footer .copy-right a{
+  color: rgb(0, 0, 0);
+}
+
+/* Tạo tính năng khi mở của sổ che mờ bên dưới */
+.modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;  
+  left: 0;
+  right: 0;
+  background-color: rgb(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.modal.open{
+  display: flex;
+}
+/* kich thuoc va mau cua all tab */
+.modal-container{
+  background-color: #fff;
+  width: 900px;
+  max-width: calc(100%-32px);
+  min-height: 300px;
+  /* Cho là cha để dùng dấu close đè lên */
+  position: relative;
+  /* CSS cho keyfame di chuyển xuống với tốc độ 0.3s */
+  animation: modalFaceinput ease 0.5s;
+}
+
+.modal-close{
+  top: 0;
+  right: 0;
+  position: absolute;
+  color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.modal-close:hover{
+  color: #000;
+  background-color: #ccc;
+}
+
+
+.modal-header{
+  background-color: #009688;
+  color: #fff;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+ 
+.modal-heading-icon {
+  margin-right: 16px;
+}
+
+.modal-body{
+  padding: 16px;
+}
+
+.modal-label{
+  display: block;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.modal-input{
+  font-size: 15px;
+  width: 100%;
+  border: 1px solid #ccc ;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+#modal-register{
+  border: none;
+  font-size: 15px;
+  color: #fff;
+  background-color: #009688;
+  width: 100%;
+  padding: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#modal-register:hover{
+  background-color: #757575;
+} 
+
+.modal-footer{
+  margin: 16px ;
+  text-align: right;
+  font-size: 15px;
+  
+}
+
+.modal-footer a{
+  color: #2196F3;
+}
+/* tạo keyfame di chuyển trượt xuống cho register */
+@keyframes modalFaceinput{
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
